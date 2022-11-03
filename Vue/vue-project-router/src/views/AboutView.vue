@@ -4,6 +4,7 @@
     <p>{{ message }}</p>
     <button @click="increment">Count is: {{ count }}</button>
     <p> {{ name }}  has published books : {{ publishedBooksMessage }}</p>
+    <p> <span v-html="rawHtml"></span> </p>
   </div>
 </template>
 
@@ -18,7 +19,8 @@ export default {
         'Vue 2 - Advanced Guide',
         'Vue 3 - Basic Guide',
         'Vue 4 - The Mystery'
-      ]
+      ],
+      rawHtml: '<span style="color: red">This should be red.</span>'
     }
   },
   methods: {
@@ -35,6 +37,9 @@ export default {
     publishedBooksMessage() {
       return this.books.length > 0 ? 'Yes' : 'No'
     }
+  },
+  mounted() {
+    console.log('About page is mounted')
   }
 }
 </script>
